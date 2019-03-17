@@ -7,7 +7,6 @@ import { graphql } from "gatsby"
 import PostLink from "../components/post-link"
 import PostIndex from "../components/postIndex";
 
-
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
@@ -23,7 +22,7 @@ const IndexPage = ({
     <Intro />
     <Stack />
     <PostIndex>
-    <div>{Posts}</div>
+    {Posts}
     </PostIndex>
   </Layout>
   </div>
@@ -49,3 +48,4 @@ export const pageQuery = graphql`
     }
   }
 `
+

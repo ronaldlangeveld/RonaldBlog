@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import Navbar from '../components/navbar';
 
 export default function Template({
     data, // this prop will be injected by the GraphQL query below.
@@ -52,31 +53,7 @@ export default function Template({
             >
                 <html lang="en" />
             </Helmet>
-            <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <Link to="/" class="navbar-item">
-        Home
-      </Link>
-      <Link to="/" class="navbar-item">
-        About
-      </Link>
-    </div>
-
-    <div class="navbar-end">
-    <a className="navbar-item" href="">Twitter</a>
-    <a className="navbar-item" href="">Github</a>
-    </div>
-  </div>
-</nav>
+            <Navbar />
             <section className="hero is-dark is-medium">
                 <div className="hero-body">
                     <div className="container has-text-centered">
@@ -84,7 +61,7 @@ export default function Template({
             Ronald Langeveld
           </Link>
  
-          <p style={margintop} className="is-size-5 has-text-centered">Contact me <a style={underline} href="https://twitter.com/ronaldlangeveld" target="_blank">@ronaldlangeveld</a> or <a style={underline} href="mailto:hi@ronaldlangeveld.com?subject=Hi, lets develop something." target="_blank">hi@ronaldlangeveld.com</a></p>
+          <p style={margintop} className="is-size-5 has-text-centered">Contact me <a style={underline} href="https://twitter.com/ronaldlangeveld" target="_blank" rel="noopener noreferrer">@ronaldlangeveld</a> or <a style={underline} href="mailto:hi@ronaldlangeveld.com?subject=Hi, lets develop something awesome." rel="noopener noreferrer">hi@ronaldlangeveld.com</a></p>
 
                     </div>
 
@@ -108,11 +85,14 @@ export default function Template({
                                         dangerouslySetInnerHTML={{ __html: html }}
                                     />
                                 </div>
+                                <Link to="/">← Back to article list</Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            
+
         </>
     )
 }
