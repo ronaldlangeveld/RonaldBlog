@@ -7,9 +7,9 @@ const PostIndex = ({children}) => {
                 <section id="postIndex" className="hero is-dark is-fullheight">
                     <div className="hero-body">
                         <div className="container">
-                        <h1 className="title is-1 has-text-centered">Blog Posts</h1>
+                        <h1 className="subtitle is-1 has-text-left">Blog Posts ✍️</h1>
                             <br />
-                            <main>
+                            <main data-aos="fade-right" >
                               {children}
                           </main>
                         </div>

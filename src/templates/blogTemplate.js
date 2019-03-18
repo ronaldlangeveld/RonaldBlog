@@ -3,6 +3,10 @@ import { graphql } from "gatsby"
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import Navbar from '../components/navbar';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+
+AOS.init();
 
 export default function Template({
     data, // this prop will be injected by the GraphQL query below.
@@ -54,6 +58,7 @@ export default function Template({
                 <html lang="en" />
             </Helmet>
             <Navbar />
+            <div>
             <section className="hero is-dark is-medium">
                 <div className="hero-body">
                     <div className="container has-text-centered">
@@ -71,7 +76,7 @@ export default function Template({
             <section className="hero">
                 <div className="hero-body">
                     <div className="container">
-                        <div className="columns is-centered">
+                        <div  data-aos="fade-right" className="columns is-centered">
                             <div className="column is-half">
                                 <h1 className="title is-2 is-size-4-mobile has-text-centered">
                                     {frontmatter.title}
@@ -92,7 +97,7 @@ export default function Template({
                 </div>
             </section>
             
-
+</div>
         </>
     )
 }

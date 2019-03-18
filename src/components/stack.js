@@ -6,18 +6,17 @@ const Stack = () => {
             <div>
                 <section className="hero is-light is-fullheight">
                     <div className="hero-body">
-                        <div className="container">
-                            <br />
+                        <div data-aos="fade-right"  className="container">
                             <h1 
                             className="subtitle is-2 has-text-centered is-size-3-mobile"> 
-                            Some of my <strong>favourite</strong> tools are <br /> 
-                            <strong>Python</strong>
+                            Some of my <strong>favourite</strong> tools ⚙️ are <br /> 
+                            <strong> Python </strong>
                              | Django | 
-                             <strong>Node JS</strong>
+                             <strong> Node JS </strong>
                               | React JS | 
-                              <strong>Jekyll</strong>
+                              <strong> Jekyll </strong>
                                | MongoDB | 
-                               <strong>Linux</strong>
+                               <strong> Git </strong>
                                </h1>
 
                                <h2 className="subtitle has-text-centered">
@@ -28,9 +27,13 @@ const Stack = () => {
                                PostgreSQL, 
                                Chart JS, 
                                Bulma, 
-                               Bootstrap, 
+                               Bootstrap,
+                               CSS,
+                               Ghost,
+                               WordPress,
                                VSCode, 
-                               Git, 
+                               Netlify,
+                               Linux, 
                                Nginx 
                                </h2>
                         </div>
