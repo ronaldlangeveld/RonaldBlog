@@ -4,7 +4,7 @@ module.exports = {
     siteMetadata: {
       title: `Ronald Langeveld`,
       siteUrl: `https://www.ronaldlangeveld.com`,
-      description: `Indie Software Developer, Ronald Langeveld, working on full stack web projects for lcoal and international clients.`,
+      description: `Indie Software Developer, Ronald Langeveld, working on development projects for local and international clients.`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -20,6 +20,21 @@ module.exports = {
             options: {
               name: `assets`,
               path: path.join(__dirname, `src`, `assets`),
+            },
+          },
+          {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+              name: `Ronald Langeveld, Software Developer`,
+              short_name: `Ronald Langeveld`,
+              start_url: `/`,
+              background_color: `#f7f0eb`,
+              theme_color: `#a2466c`,
+              // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+              // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+              display: `standalone`,
+              icon: `src/assets/profile.jpg`, // This path is relative to the root of the site.
+              include_favicon: true, // Include favicon
             },
           },
           `gatsby-transformer-remark`,
