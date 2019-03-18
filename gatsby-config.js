@@ -37,6 +37,15 @@ module.exports = {
               include_favicon: true, // Include favicon
             },
           },
+          {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+              trackingId: 'UA-111873806-1',
+              head: false,
+              anonymize: true,
+              respectDNT: true
+            }
+          },
           `gatsby-plugin-offline`,
           `gatsby-transformer-remark`,
           `gatsby-plugin-sharp`,
