@@ -28,7 +28,7 @@ render={data => (
             Ronald Langeveld
           </h1>
           <h2 className="subtitle is-3 is-size-4-mobile has-text-centered">
-            Full Stack Software Developer
+            Full Stack Web Developer
           </h2>
           <br/>
           <h1 className="subtitle is-2 is-size-4-mobile has-text-centered">
