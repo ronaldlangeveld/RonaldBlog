@@ -6,7 +6,7 @@ import Navbar from '../components/navbar';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 
-AOS.init();
+// AOS.init();
 
 export default function Template({
     data, // this prop will be injected by the GraphQL query below.
