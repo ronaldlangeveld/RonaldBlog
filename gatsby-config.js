@@ -37,8 +37,10 @@ module.exports = {
               include_favicon: true, // Include favicon
             },
           },
+          `gatsby-plugin-offline`,
           `gatsby-transformer-remark`,
           `gatsby-plugin-sharp`,
           `gatsby-transformer-sharp`,
+
     ]
   }
