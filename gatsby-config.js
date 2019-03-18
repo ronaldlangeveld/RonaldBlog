@@ -26,7 +26,7 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
               name: `Ronald Langeveld, Software Developer`,
-              short_name: `Ronald Langeveld`,
+              short_name: `Ronald Blog`,
               start_url: `/`,
               background_color: `#f7f0eb`,
               theme_color: `#a2466c`,
