@@ -32,7 +32,7 @@ render={data => (
           </h2>
           <br/>
           <h1 className="subtitle is-2 is-size-4-mobile has-text-centered">
-          Need Web Development 🌍 help or tech consultation ℹ️ to kick off for your next big thing 💡?
+          Need Web Development 🌍 or Tech Consultation ℹ️ to kick off for your next big thing 💡?
           </h1>
           <h2 className="subtitle is-3 is-size-6-mobile has-text-centered">
             <p className="has-text-weight-bold">I'm available for remote projects 💻</p>
