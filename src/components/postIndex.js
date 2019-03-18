@@ -4,7 +4,7 @@ const PostIndex = ({children}) => {
     return (
         <div>
             <div>
-                <section className="hero is-dark is-fullheight">
+                <section id="postIndex" className="hero is-dark is-fullheight">
                     <div className="hero-body">
                         <div className="container">
                         <h1 className="title is-1 has-text-centered">Blog Posts</h1>

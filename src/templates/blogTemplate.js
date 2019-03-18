@@ -85,7 +85,7 @@ export default function Template({
                                         dangerouslySetInnerHTML={{ __html: html }}
                                     />
                                 </div>
-                                <Link to="/">← Back to article list</Link>
+                                <Link to="/#postIndex">← Back to article list</Link>
                             </div>
                         </div>
                     </div>
