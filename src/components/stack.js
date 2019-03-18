@@ -22,7 +22,8 @@ const Stack = () => {
 
                                <h2 className="subtitle has-text-centered">
                                Gatsby JS, 
-                               Flask, 
+                               Flask,
+                               Express JS, 
                                MySQL, 
                                PostgreSQL, 
                                Chart JS, 
