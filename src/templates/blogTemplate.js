@@ -6,9 +6,9 @@ import Navbar from '../components/navbar';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 
-// AOS.init();
 
 export default function Template({
+
     data, // this prop will be injected by the GraphQL query below.
 }) {
     const { markdownRemark } = data // data.markdownRemark holds our post data
@@ -76,7 +76,7 @@ export default function Template({
             <section className="hero">
                 <div className="hero-body">
                     <div className="container">
-                        <div  data-aos="fade-right" className="columns is-centered">
+                        <div className="columns is-centered">
                             <div className="column is-half">
                                 <h1 className="title is-2 is-size-4-mobile has-text-centered">
                                     {frontmatter.title}
