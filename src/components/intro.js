@@ -50,8 +50,6 @@ render={data => (
   </div>
 )}/>)
 
-
-
     const largeTitle = {
         fontSize: "5em"
       };
