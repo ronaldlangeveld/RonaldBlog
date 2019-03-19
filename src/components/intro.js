@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 import { StaticQuery, graphql } from "gatsby"
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import { Link } from "gatsby"
 
 
 export default () => (
@@ -40,8 +41,10 @@ render={data => (
          <p className="is-size-5">Contact me <a style={underline} href="https://twitter.com/ronaldlangeveld" target="_blank" rel="noopener noreferrer">@ronaldlangeveld</a> or <a style={underline} href="mailto:hi@ronaldlangeveld.com?subject=Hi, lets develop something." rel="noopener noreferrer">hi@ronaldlangeveld.com</a></p>
          <br />
          <h2 className="subtitle is-5 has-text-centered">Over the last 2 years I've worked on many different projects, both personal and for clients (individuals and enterprises), ranging from full featured websites to blazing fast single page applications.</h2>
+         <Link style={underline} to="/projects" className="subtitle">
+            👉 Check out some of my latest projects
+                                </Link>
           </div>
-          
       </div>
     </section>
   </div>

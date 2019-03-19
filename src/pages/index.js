@@ -7,6 +7,7 @@ import 'bulma/css/bulma.css';
 import PostLink from "../components/post-link"
 import PostIndex from "../components/postIndex";
 // import Projects from "../components/projects";
+import Navbar from "../components/navbar";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { StaticQuery, graphql } from 'gatsby'
@@ -49,6 +50,7 @@ class IndexPage extends Component {
 
   <div>
     <Layout>
+      <Navbar />
     <Intro />
     <Stack />
     <PostIndex>

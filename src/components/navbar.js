@@ -29,7 +29,14 @@ class Navbar extends Component {
                         <div className="navbar-start">
                             <Link to="/" className="navbar-item">
                                 Home
-    </Link>
+                                </Link>
+                            <Link activeClassName='is-active' to="/projects" className="navbar-item">
+                                Projects
+                                </Link>
+                            <Link activeClassName='is-active' to="/#postIndex" className="navbar-item">
+                                Blog
+                                </Link>
+
                         </div>
 
                         <div className="navbar-end">
