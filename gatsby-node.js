@@ -1,37 +1,44 @@
 const path = require("path")
+const _ = require(`lodash`)
+const Promise = require(`bluebird`)
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
-
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
-              title
+  const createPosts = new Promise((resolve, reject) => {
+    const postTemplate = path.resolve(`./src/templates/blogTemplate.js`)
+    resolve(
+      graphql(`
+        {
+          allGhostPost(sort: { order: ASC, fields: published_at }) {
+            edges {
+              node {
+                id
+                slug
+                title
+                html
+                published_at
+              }
             }
           }
         }
-      }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+      `).then(result => {
+        const items = result.data.allGhostPost.edges
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {}, // additional data can be passed via context
+        _.forEach(items, ({ node }) => {
+          node.url = `/${node.slug}/`
+          createPage({
+            path: node.url,
+            component: path.resolve(postTemplate),
+            context: {
+              slug: node.slug,
+            },
+          })
+        })
+
+        return resolve()
       })
-    })
+    )
   })
+
+  return Promise.all(createPosts)
 }

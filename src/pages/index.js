@@ -31,19 +31,16 @@ class IndexPage extends Component {
     return (
 <StaticQuery query={graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            path
-            title
+    allGhostPost(sort: { order: DESC, fields: published_at }) {
+            edges {
+              node {
+                id
+                slug
+                title
+                published_at
+              }
+            }
           }
-        }
-      }
-    }
   }
 `
 } render = {data => (
@@ -54,8 +51,8 @@ class IndexPage extends Component {
     <Intro />
     <Stack />
     <PostIndex>
-       {data.allMarkdownRemark.edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+       {data.allGhostPost.edges
+    .filter(edge => !!edge.node.published_at) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)}
     </PostIndex>
   </Layout>

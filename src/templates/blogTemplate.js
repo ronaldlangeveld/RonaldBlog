@@ -5,19 +5,20 @@ import Link from 'gatsby-link';
 import Navbar from '../components/navbar';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import moment from "moment";
 
 
 export default function Template({
 
     data, // this prop will be injected by the GraphQL query below.
 }) {
-    const { markdownRemark } = data // data.markdownRemark holds our post data
-    const { frontmatter, html } = markdownRemark
+    const post = data.ghostPost;
     const { siteUrl, title, description } = data.site.siteMetadata;
+    const postdate = moment(post.published_at).format("DD MMMM YYYY");  
     return (
         <>
             <Helmet
-                title={frontmatter.title}
+                title={post.title}
                 meta={[
                     { charSet: 'utf-8' },
                     { httpEquiv: 'Content-Language', content: 'en-us' },
@@ -79,15 +80,15 @@ export default function Template({
                         <div className="columns is-centered">
                             <div className="column is-half">
                                 <h1 className="title is-2 is-size-4-mobile has-text-centered">
-                                    {frontmatter.title}
+                                    {post.title}
                                 </h1>
                                 <h2 className="subtitle is-5 has-text-centered">
-                                    {frontmatter.date}
+                                    {postdate}
                                 </h2>
                                 <hr />
                                 <div className="content is-medium is-small-mobile">
                                     <div
-                                        dangerouslySetInnerHTML={{ __html: html }}
+                                        dangerouslySetInnerHTML={{ __html: post.html }}
                                     />
                                 </div>
                                 <Link to="/#postIndex">← Back to article list</Link>
@@ -112,14 +113,14 @@ const underline = {
   }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    ghostPost(slug: { eq: $slug }) {
+      id
+      title
+      slug
       html
-      frontmatter {
-        date(formatString: "DD MMMM YYYY")
-        path
-        title
-      }
+      feature_image
+      published_at
     }
     site {
     siteMetadata {

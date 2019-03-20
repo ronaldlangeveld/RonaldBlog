@@ -46,6 +46,13 @@ module.exports = {
               respectDNT: true
             }
           },
+          {
+            resolve: `gatsby-source-ghost`,
+            options: {
+                apiUrl: `https://ghost.ronaldlangeveld.com`,
+                contentApiKey: `d6e44b087879227912673bda76`
+            }
+         },
           `gatsby-plugin-offline`,
           `gatsby-transformer-remark`,
           `gatsby-plugin-sharp`,
