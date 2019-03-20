@@ -1,45 +1,57 @@
-const path = require("path")
 const _ = require(`lodash`)
+const Promise = require(`bluebird`)
+const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  const createPosts = new Promise((resolve, reject) => {
-    const postTemplate = path.resolve(`./src/templates/blogTemplate.js`)
-    resolve(
-      graphql(`
-        {
-          allGhostPost(sort: { order: ASC, fields: published_at }) {
-            edges {
-              node {
-                id
-                slug
-                title
-                html
-                published_at
-              }
-            }
-          }
-        }
-      `).then(result => {
-        const items = result.data.allGhostPost.edges
+    const { createPage } = actions
+    const createPosts = new Promise((resolve, reject) => {
+        const postTemplate = path.resolve(`./src/templates/blogTemplate.js`)
+        resolve(
+            graphql(`
+                {
+                    allGhostPost(
+                        sort: {order: ASC, fields: published_at},
+                        filter: {
+                            slug: {ne: "data-schema"}
+                        }
+                    ) {
+                        edges {
+                            node {
+                                slug
+                            }
+                        }
+                    }
+                }`
+            ).then((result) => {
+                if (result.errors) {
+                    return reject(result.errors)
+                }
 
-        _.forEach(items, ({ node }) => {
-          node.url = `/${node.slug}/`
-          createPage({
-            path: node.url,
-            component: path.resolve(postTemplate),
-            context: {
-              slug: node.slug,
-            },
-          })
-        })
+                if (!result.data.allGhostPost) {
+                    return resolve()
+                }
 
-        return resolve()
-      }).catch(error => {
-        console.log(error);
-      })
-    )
-  })
+                const items = result.data.allGhostPost.edges
 
-  return Promise.all(createPosts)
+                _.forEach(items, ({ node }) => {
+                    // This part here defines, that our posts will use
+                    // a `/:slug/` permalink.
+                    node.url = `/${node.slug}/`
+
+                    createPage({
+                        path: node.url,
+                        component: path.resolve(postTemplate),
+                        context: {
+                            // Data passed to context is available
+                            // in page queries as GraphQL variables.
+                            slug: node.slug,
+                        },
+                    })
+                })
+                return resolve()
+            })
+        )
+    })
+
+    return Promise.all([createPosts])
 }
