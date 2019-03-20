@@ -1,6 +1,5 @@
 const path = require("path")
 const _ = require(`lodash`)
-const Promise = require(`bluebird`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -36,6 +35,8 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         return resolve()
+      }).catch(error => {
+        console.log(error);
       })
     )
   })
