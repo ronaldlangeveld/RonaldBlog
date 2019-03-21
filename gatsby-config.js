@@ -38,15 +38,6 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-              trackingId: 'UA-111873806-1',
-              head: false,
-              anonymize: true,
-              respectDNT: true
-            }
-          },
-          {
             resolve: `gatsby-source-ghost`,
             options: {
                 apiUrl: `https://ghost.ronaldlangeveld.com`,

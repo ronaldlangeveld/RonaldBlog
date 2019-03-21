@@ -3,11 +3,11 @@ const Promise = require(`bluebird`)
 const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
-    const { createPage } = actions
-    const createPosts = new Promise((resolve, reject) => {
-        const postTemplate = path.resolve(`./src/templates/blogTemplate.js`)
-        resolve(
-            graphql(`
+  const { createPage } = actions
+  const createPosts = new Promise((resolve, reject) => {
+    const postTemplate = path.resolve(`./src/templates/blogTemplate.js`)
+    resolve(
+      graphql(`
                 {
                     allGhostPost(
                         sort: {order: ASC, fields: published_at},
@@ -22,36 +22,35 @@ exports.createPages = ({ graphql, actions }) => {
                         }
                     }
                 }`
-            ).then((result) => {
-                if (result.errors) {
-                    return reject(result.errors)
-                }
+      ).then((result) => {
+        if (result.errors) {
+          return reject(result.errors)
+        }
 
-                if (!result.data.allGhostPost) {
-                    return resolve()
-                }
+        if (!result.data.allGhostPost) {
+          return resolve()
+        }
 
-                const items = result.data.allGhostPost.edges
+        const items = result.data.allGhostPost.edges
 
-                _.forEach(items, ({ node }) => {
-                    // This part here defines, that our posts will use
-                    // a `/:slug/` permalink.
-                    node.url = `/${node.slug}/`
+        _.forEach(items, ({ node }) => {
 
-                    createPage({
-                        path: node.url,
-                        component: path.resolve(postTemplate),
-                        context: {
-                            // Data passed to context is available
-                            // in page queries as GraphQL variables.
-                            slug: node.slug,
-                        },
-                    })
-                })
-                return resolve()
-            })
-        )
-    })
+          node.url = `/${node.slug}/`
 
-    return Promise.all([createPosts])
+          createPage({
+            path: node.url,
+            component: path.resolve(postTemplate),
+            context: {
+
+              slug: node.slug,
+            },
+          })
+        })
+        return resolve()
+      })
+    )
+  })
+
+  return Promise.all([createPosts])
 }
+
