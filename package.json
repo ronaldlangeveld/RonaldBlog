@@ -13,8 +13,10 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "@tryghost/helpers": "^1.1.0",
     "aos": "^2.3.4",
     "bulma": "^0.7.4",
+    "cheerio": "^1.0.0-rc.2",
     "dayjs": "^1.8.10",
     "fs": "0.0.1-security",
     "gatsby": "^2.1.31",

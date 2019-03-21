@@ -1,4 +1,6 @@
 const path = require(`path`)
+const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
+const config = require(`./src/utils/siteConfig`)
 
 module.exports = {
     siteMetadata: {
@@ -48,8 +50,26 @@ module.exports = {
           `gatsby-transformer-remark`,
           `gatsby-plugin-sharp`,
           `gatsby-transformer-sharp`,
-          `gatsby-plugin-sitemap`,
-          `gatsby-plugin-feed`
+          {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                {
+                    allGhostSettings {
+                        edges {
+                            node {
+                                title
+                                description
+                            }
+                        }
+                    }
+                }
+              `,
+                feeds: [
+                    generateRSSFeed(config),
+                ],
+            },
+        },
 
     ]
   }
