@@ -50,6 +50,7 @@ module.exports = {
           `gatsby-transformer-remark`,
           `gatsby-plugin-sharp`,
           `gatsby-transformer-sharp`,
+          `gatsby-plugin-sitemap`,
           {
             resolve: `gatsby-plugin-feed`,
             options: {
