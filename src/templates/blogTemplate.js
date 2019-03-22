@@ -21,7 +21,7 @@ export default function Template({
         <Layout>
             <Navbar />
             <div>
-            <section className="hero is-dark is-medium">
+            {/* <section className="hero is-dark is-medium">
                 <div className="hero-body">
                     <div className="container has-text-centered">
                     <Link to="/" className="title is-1 is-size-3-mobile has-text-centered">
@@ -33,9 +33,9 @@ export default function Template({
                     </div>
 
                 </div>
-            </section>
+            </section> */}
 
-            <section className="hero">
+            <section className="hero is-medium">
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns is-centered">

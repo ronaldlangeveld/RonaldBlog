@@ -16,8 +16,10 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+                <nav className="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
+                    <Link activeClassName='is-hidden' className="navbar-item has-text-weight-bold" to="/">Ronald Langeveld</Link>
+
                         <a onClick={this.handleClick} role="button" className={this.state.isActive ? 'navbar-burger burger is-active' : 'navbar-burger burger'} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
@@ -27,9 +29,7 @@ class Navbar extends Component {
 
                     <div id="navbarBasicExample" className={this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu'}>
                         <div className="navbar-start">
-                            <Link to="/" className="navbar-item">
-                                Home
-                                </Link>
+
                             <Link activeClassName='is-active' to="/projects" className="navbar-item">
                                 Projects
                                 </Link>
