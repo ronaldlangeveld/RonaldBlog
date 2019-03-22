@@ -58,7 +58,6 @@ export default function Template({
                     </div>
                 </div>
             </section>
-            
 </div>
 </Layout>
         </>
