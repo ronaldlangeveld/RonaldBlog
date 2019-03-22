@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import Navbar from '../components/navbar';
 import axios from 'axios';
 import ogCard from '../assets/loadshedding.png';
+import 'bulma/css/bulma.css';
 
 class loadshedding extends Component {
 
@@ -118,6 +119,9 @@ class loadshedding extends Component {
                             { name: 'twitter:url', content: "https://www.ronaldlangeveld.com/loadshedding" },
                             { property: 'og:title', content: "Loadshedding Status" },
                             { property: 'og:image', content: "https://www.ronaldlangeveld.com/loadshedding" + ogCard },
+                            { property: 'og:image:width', content: 1200 },
+                            { property: 'og:image:height', content: 628 },
+                            { property: 'og:image:secure_url', content: "https://www.ronaldlangeveld.com/loadshedding" + ogCard },
                             { property: 'og:url', content: "https://www.ronaldlangeveld.com/loadshedding" },
                             { property: 'og:description', content: "The current national status for Loadshedding" },
                             { property: 'og:image:width', content: 1200 },
