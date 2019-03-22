@@ -11,6 +11,7 @@ import Navbar from "../components/navbar";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { StaticQuery, graphql } from 'gatsby'
+import Playground from '../components/playground';
 
 class IndexPage extends Component {
   componentDidMount() {
@@ -55,6 +56,7 @@ class IndexPage extends Component {
     .filter(edge => !!edge.node.published_at) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)}
     </PostIndex>
+    <Playground />
   </Layout>
   </div>
 
