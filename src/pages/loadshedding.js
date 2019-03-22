@@ -72,7 +72,7 @@ class loadshedding extends Component {
     if(status === 0){
         stageClass = allClasses + ' is-success'
     } if(status === 1){
-        stageClass = allClasses + ' is-info'
+        stageClass = allClasses + ' is-warning'
     }
     if(status === 2){
         stageClass = allClasses + ' is-warning'
@@ -82,7 +82,9 @@ class loadshedding extends Component {
     if(status === 4){
         stageClass = allClasses + ' is-danger'
 
-    } 
+    } if(status > 4){
+        stageClass = allClasses + ' is-dark'
+    }
     
 
     return (
@@ -139,12 +141,12 @@ class loadshedding extends Component {
 <section className={stageClass}>
 <div className="hero-body">
   <div className="container">
-  <h2 className="title is-1 has-text-centered">
+  <h2 className="title is-1 is-size-3-mobile has-text-centered">
   Bad News 😭
                   <br/>
                  Loadshedding in progress
                 </h2>
-    <h1 style={hugeText} className="title has-text-centered">
+    <h1 style={hugeText} className="title has-text-centered is-size-1-mobile">
       {this.state.status}
     </h1>
     <h2 className="is-size-5 has-text-centered"><i>Not actually <strong>Stage {this.state.status}</strong>? Please let me know so I can fix this</i></h2>
@@ -162,7 +164,7 @@ class loadshedding extends Component {
             <section className="hero is-fullheight is-success">
             <div className="hero-body">
               <div className="container">
-              <h1 className="title is-1 has-text-centered">
+              <h1 className="title is-1 is-size-3-mobile has-text-centered">
                   Good News 😄
                   <br/>
                   There's no loadshedding right now!
