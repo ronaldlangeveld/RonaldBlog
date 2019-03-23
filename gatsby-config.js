@@ -6,7 +6,7 @@ module.exports = {
     siteMetadata: {
       title: `Ronald Langeveld`,
       siteUrl: `https://www.ronaldlangeveld.com`,
-      description: `Indie Software Developer, Ronald Langeveld, working on development projects for local and international clients.`,
+      description: `Indie Software Developer, Ronald Langeveld, working on development projects for local and international clients. Living in South Africa and travels around Asia whilst working remotely.`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
