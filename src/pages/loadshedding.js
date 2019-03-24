@@ -16,38 +16,17 @@ class loadshedding extends Component {
 
         console.log('getting status');
 
-        axios.get('https://bigapi.co.za/api/LoadSheddings/status?access_token=xUO0RTEkOvlIn3Xw7H9WsBFIwQqAdk3htHAcTZMP3Kc0dumTwe1fodFwMhGpBL8S')
+        // axios.get('https://bigapi.co.za/api/LoadSheddings/status?access_token=xUO0RTEkOvlIn3Xw7H9WsBFIwQqAdk3htHAcTZMP3Kc0dumTwe1fodFwMhGpBL8S')
+        axios.get('https://api.ronaldlangeveld.com/eskomStatus')
+
         .then(res => {
     
-            const now = res.data.statuses[0].status;
-            console.log(now);
-            if(now === 'Stage1'){
-                this.setState({fucked: true, status: 1})
-                return now;
-            } if(now === 'Stage2'){
-                
-                this.setState({fucked: true,  status:2})
-                return now;
-            } if(now === 'Stage3'){
-                this.setState({fucked: true,  status:3})
-                return now;
-            } if(now === 'Stage4'){
-                this.setState({fucked: true,  status:4})
-                return now;
-            } if(now === 'Stage5'){
-                this.setState({fucked: true,  status:5})
-                return now;
-            } if(now === 'Stage6'){
-                this.setState({fucked: true,  status:6})
-                return now;
-            } if(now === 'Stage7'){
-                this.setState({fucked: true, status:7})
-                return now;
-            } if(now === 'Stage8'){
-                this.setState({fucked: true, status:8})
-                return now;
+            const now = res.data.stage;
+            if (now > 0){
+                this.setState({fucked: true, status: now})
+            }
     
-            } else {
+             else {
 
                 this.setState({fucked: false, status:0})
 
