@@ -51,6 +51,7 @@ module.exports = {
           `gatsby-plugin-sharp`,
           `gatsby-transformer-sharp`,
           `gatsby-plugin-sitemap`,
+          `gatsby-plugin-brotli`,
           {
             resolve: `gatsby-plugin-feed`,
             options: {
